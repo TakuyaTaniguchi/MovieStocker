@@ -1,3 +1,6 @@
+require('dotenv').config();
+const { TMDB_KEY } = process.env;
+
 module.exports = {
   /*
   ** Headers of the page
@@ -26,7 +29,7 @@ module.exports = {
 		'~/plugins/axios.js'
 	],
 	env: {
-		QIITA_TOKEN: process.env.QIITA_TOKEN
+    TMDB_KEY
   },
   css: [
     // Node.js モジュールを直接ロードする (ここでは SASS ファイル)

@@ -2,18 +2,18 @@
   <div>
     <section class="section is-medium">
       <div class="container">
-        <p class="title">JavaScriptのタグがつけられたQiitaの記事一覧</p>
+        <h2 class="title">最新映画情報</h2>
         <ul>
-          <li v-for="item in items" :key="item.id">
+          <li>
             <div class="icon">
-              <img :src="item.user.profile_image_url" >
+              <img :src="`https://image.tmdb.org/t/p/w185/${items.backdrop_path}`" >
             </div>
-            <h4>
+            <!-- <h4>
               <span>{{ item.title }}</span>
               <nuxt-link :to="`/users/${item.user.id}`">by {{item.user.id}}</nuxt-link>
             </h4>
             <div>{{item.body.slice(0,130)}}....</div>
-            <p><a :href="item.url">{{ item.url }}</a></p>
+            <p><a :href="item.url">{{ item.url }}</a></p> -->
           </li>
         </ul>
       </div>
@@ -23,10 +23,12 @@
 
 <script>
 	export default {
-		async asyncData({app}){
-			const items = await app.$axios.$get('https://qiita.com/api/v2/items?query=tag:javascript')
+    async asyncData({app}){
+      const items = await app.$axios.$get(`https://api.themoviedb.org/3/movie/550?api_key=${process.env.TMDB_KEY}&language=ja-JP`)
+      console.dir(items,'API');
+       console.dir('API');
 			return {
-				items
+        items
 			}
 		}
 	}
@@ -62,15 +64,6 @@ p {
 
 a{
   word-break: break-all;
-}
-.icon{
-  width: 120px;
-  height: auto;
-}
-.icon img{
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
 }
 </style>
 
