@@ -6,7 +6,9 @@
         <ul>
           <li v-for="result in results" :key="result.id">
             <div>
-              <img :src="`https://image.tmdb.org/t/p/w185/${result.backdrop_path}`" >
+              <h3>{{result.title}}</h3>
+              <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
+              <p>{{ result.overview}}</p>
             </div>
           </li>
         </ul>
@@ -41,15 +43,19 @@ h3{
 }
 ul{
   margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 li{
-    border-radius: 10px;
+    width: 33%;
+    /* border-radius: 10px;
     border: solid 3px #ffb3b3;
     padding: 15px;
-    word-break: break-all;
+    word-break: break-all; */
 }
-li + li {
-  margin-top: 60px;
+li img{
+  width: 100%;
 }
 
 p {
