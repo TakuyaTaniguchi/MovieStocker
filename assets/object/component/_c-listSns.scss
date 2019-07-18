@@ -1,0 +1,10 @@
+.c-listSns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95px;
+    margin-left: auto;
+    &_item{
+        width: 40px;
+    }
+}

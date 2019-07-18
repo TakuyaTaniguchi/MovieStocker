@@ -1,0 +1,16 @@
+.c-card{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &::after{
+        content:"";
+        display: block;
+        width: 33.33%;
+      }
+    &_item{
+        width: 33.33%;
+    }
+    &_inner{
+
+    }
+}
