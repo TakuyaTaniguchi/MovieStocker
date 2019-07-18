@@ -16,14 +16,14 @@ module.exports = {
       { property : "og:description", content: "最新映画情報を確認できる"},
       { property : "og:url", content: "https://movie-stocker.netlify.com/"},
       { property : "og:site_name", content: "MovieStocker"},
-      { property : "og:image", content: "/ogp.png"},
-      { property : "og:image:secure_url", content: "/ogp.png"},
+      { property : "og:image", content: "/ogp.jpg"},
+      { property : "og:image:secure_url", content: "/ogp.jpg"},
       { property : "og:image:width", content: "1200"},
       { property : "og:image:height", content: "600"},
       { name:"twitter:card", content: "summary_large_image"},
       { name:"twitter:description", content: "最新映画情報を確認できる"},
       { name:"twitter:title", content: "最新映画情報を確認できる"},
-      { name:"twitter:image", content: "/ogp.png"}
+      { name:"twitter:image", content: "/ogp.jpg"}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
