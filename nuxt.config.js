@@ -1,6 +1,5 @@
 require('dotenv').config();
 const { TMDB_KEY } = process.env;
-
 module.exports = {
   /*
   ** Headers of the page
@@ -20,8 +19,8 @@ module.exports = {
   ** Customize the progress bar color
   */
 	modules: [
-		'@nuxtjs/axios'
-	],
+    '@nuxtjs/axios'
+  ],
 	axios: {
 
 	},
