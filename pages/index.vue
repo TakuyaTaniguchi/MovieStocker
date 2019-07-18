@@ -2,7 +2,7 @@
   <div>
     <section class="l-section -is-medium">
       <div class="container">
-        <h2 class="title">最新映画情報</h2>
+        <h2 class="c-articleTitle">Most popular movies</h2>
         <ul class="c-card">
           <li v-for="result in results" :key="result.id" class="c-card_item">
             <div class="c-card_inner">

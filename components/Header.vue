@@ -1,7 +1,9 @@
 <template>
-  <section class="hero is-medium is-primary is-bold">
-    <h1>MovieStocker</h1>
-  </section>
+    <section class="l-header">
+    <div class="l-header_inner">
+      <h1 class="l-header_title">MovieStocker</h1>
+    </div>
+</section>
 </template>
 
 <script>
