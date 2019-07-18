@@ -1,0 +1,61 @@
+// # text adjust
+$-webkit-text-size-adjust : false;
+
+// # text
+$base_font_size:13px;
+//$font_size:100%;
+$line_height:1.5;
+$font_color:#383838;
+$-webkit-tap-highlight:false;
+
+// #color
+$white:#fff;
+$black:#383838;
+$base-bg : #181212;
+$base-bg_2 : #2a1f1a;
+
+$red : #eb082c;
+$black_2: #808080;
+$black_3: #666464;
+$black_4: #595757;
+$gray : #ebebeb;
+$gray_2: #f5f5f5;
+$gray_3: #b9b9b9;
+$gray_4: #c4c4c4;
+$gray_5: #9fa0a0;
+$gray_6: #e8e8e8;
+$gray_7 : #cdcdcd;
+$gray_8: #bbbbbb;
+// link
+$link_color:#383838;
+$link_hover_color:#383838;
+
+// BREAKPOINT
+// --------------------
+$breakpoints:(
+	exsp:321px,
+	sp_414 : 414px,
+	sp_375 : 375px,
+	breakPoint: 960px,
+	tb: 960px,
+	extend_1025: 1025px,
+);
+
+$land_1024: 1024px;
+$land_812 : 812px;
+$land_736: 736px;
+$land_667: 667px;
+$land_568: 568;
+
+
+
+// SP-Width
+
+$SpWidth : 90%;
+
+/* ===============================================
+garamond typekit font
+.font-garamond
+or
+.tk-adobe-garamond-pro
+=============================================== */
