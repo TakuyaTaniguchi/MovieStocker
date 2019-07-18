@@ -12,6 +12,11 @@
            <img src="/icon-github.svg" alt="Github">
           </a>
         </li>
+        <li class="c-listSns_item -is-large">
+          <a href="https://www.themoviedb.org/">
+           <img src="/tmdb-suppor.svg" alt="TMDB">
+          </a>
+        </li>
       </ul>
     </div>
 </section>
