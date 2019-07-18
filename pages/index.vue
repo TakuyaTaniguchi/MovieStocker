@@ -6,9 +6,11 @@
         <ul class="c-card">
           <li v-for="result in results" :key="result.id" class="c-card_item">
             <div class="c-card_inner">
-              <!-- <h3>{{result.title}}</h3> -->
               <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
-              <!-- <p>{{ result.overview}}</p> -->
+              <div class="c-card_desc">
+                 <h3>{{result.title}}</h3>
+                 <p>{{ result.overview}}</p>
+              </div>
             </div>
           </li>
         </ul>
