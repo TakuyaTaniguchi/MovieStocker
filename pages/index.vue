@@ -8,8 +8,10 @@
             <div class="c-card_inner">
               <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
               <div class="c-card_desc">
-                 <h3>{{result.title}}</h3>
-                 <p>{{ result.overview}}</p>
+                  <div class="c-card_desc_inner">
+                    <h3>{{result.title}}</h3>
+                    <p>{{ result.overview.slice(0,100)}}...</p>
+                  </div>
               </div>
             </div>
           </li>

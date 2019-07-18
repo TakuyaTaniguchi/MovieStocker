@@ -25,6 +25,10 @@
         height: 100%;
         border: solid 2px #5FCE98;
         color: #5FCE98;
+        &_inner{
+            padding: 0 25px;
+            margin-top: 115px;
+        }
         &:hover{
             transition: opacity .4s;
             opacity: 1;
