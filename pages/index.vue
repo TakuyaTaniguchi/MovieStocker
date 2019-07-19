@@ -3,9 +3,9 @@
     <section class="l-section -is-medium">
       <div class="container">
         <h2 class="c-articleTitle">Search</h2>
-        <form @submit="checkForm" method="post">
-          <input v-model="text" />
-          <input type="submit" value="value" />
+        <form @submit="checkForm" method="post" class="c-form">
+          <input v-model="text" placeholder="Please Input MovieTitle" class="c-form_input"/>
+          <input type="image" src="/search-line.svg" class="c-form_submit" />
         </form>
          <ul class="c-card">
           <li v-for="result in resultSearch" :key="result.id" class="c-card_item">
@@ -57,7 +57,8 @@
     methods: {
       async checkForm(e) {
         e.preventDefault();
-        const response = await this.$axios.$get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_KEY}&query=コナン&language=ja-JA`);
+        const text = this.text;
+        const response = await this.$axios.$get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_KEY}&query=${text}&language=ja-JA`);
         this.resultSearch = response.results;
       }
   },
