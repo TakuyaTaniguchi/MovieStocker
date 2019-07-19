@@ -1,10 +1,20 @@
 .c-genresList{
     display: flex;
     align-items: center;
+    margin-top: 15px;
     &_item{
         margin: 0 5px;
         border: solid 1px;
         border-radius: 5px;
         padding: 5px;
+    }
+}
+
+@include breakpoint(tb) {
+    .c-genresList{
+        flex-wrap: wrap;
+        &_item{
+          margin-top: 10px;
+        }
     }
 }
