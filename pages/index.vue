@@ -9,7 +9,7 @@
         </form>
          <ul class="c-card">
           <li v-for="result in resultSearch" :key="result.id" class="c-card_item">
-            <nuxt-link :to="`/page/${result.title}`">
+            <nuxt-link :to="`/page/${result.id}`">
               <div class="c-card_inner">
                 <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
                 <div class="c-card_desc">
@@ -25,7 +25,7 @@
         <h2 class="c-articleTitle">Most popular movies</h2>
         <ul class="c-card">
           <li v-for="result in results" :key="result.id" class="c-card_item">
-            <nuxt-link :to="`/page/${result.title}`">
+            <nuxt-link :to="`/page/${result.id}`">
               <div class="c-card_inner">
                 <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
                 <div class="c-card_desc">
@@ -63,6 +63,7 @@
         e.preventDefault();
         const text = this.text;
         const response = await this.$axios.$get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_KEY}&query=${text}&language=ja-JA`);
+        console.log(response);
         this.resultSearch = response.results;
       }
   },
