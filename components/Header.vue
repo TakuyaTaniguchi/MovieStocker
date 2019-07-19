@@ -1,9 +1,9 @@
 <template>
     <section class="l-header">
     <div class="l-header_inner">
-      <a href="/">
+      <nuxt-link :to="`/`">
        <h1 class="l-header_title">MovieStocker</h1>
-      </a>
+      </nuxt-link>
     </div>
 </section>
 </template>
