@@ -16,3 +16,24 @@
         width: 100%;
     }
 }
+
+@include breakpoint(tb) {
+    .c-descHasPoster{
+        padding: 20px 20px;
+        &_poster{
+            
+        }
+        &_desc{
+            margin-top: 30px;
+            &_text{
+
+            }
+            &_date{
+                margin-top: 15px;
+            }
+            &_runTime{
+                margin-top: 5px;
+            }
+        }
+    }
+}

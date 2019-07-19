@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="l-section -is-medium">
-      <div class="container">
+      <div class="l-container">
         <h2 class="c-articleTitle">Search</h2>
         <form @submit="checkForm" method="post" class="c-form">
           <input v-model="text" placeholder="Please Input MovieTitle" class="c-form_input"/>
@@ -22,6 +22,8 @@
             </nuxt-link>
           </li>
         </ul>
+      </div>
+      <div class="l-container">
         <h2 class="c-articleTitle">Most popular movies</h2>
         <ul class="c-card">
           <li v-for="result in results" :key="result.id" class="c-card_item">
@@ -30,8 +32,8 @@
                 <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
                 <div class="c-card_desc">
                     <div class="c-card_desc_inner">
-                      <h3>{{result.title}}</h3>
-                      <p>{{ result.overview.slice(0,100)}}...</p>
+                      <h3 class="c-card_desc_title">{{result.title}}</h3>
+                      <p class="c-card_desc_text">{{ result.overview.slice(0,100)}}...</p>
                     </div>
                 </div>
               </div>

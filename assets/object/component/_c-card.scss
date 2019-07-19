@@ -34,6 +34,7 @@
         }
         &_text{
             font-size: 12px;
+            margin-top: 10px;
             line-height: 1.7;
             letter-spacing: 0.1em;
         }
@@ -49,10 +50,10 @@
         &::after{
             content:"";
             display: block;
-            width: 33.33%;
+            width: 50%;
           }
         &_item{
-            width: 33.33%;
+            width: 50%;
         }
         &_inner{
         }

@@ -8,9 +8,9 @@
 						<img :src="`https://image.tmdb.org/t/p/w780/${data.poster_path}`" alt='poster' >
 					</div>
 					<div class="c-descHasPoster_desc">
-						<p>{{ data.overview }}</p>
-						<p>公開日{{ data.release_date }}</p>
-						<p>上映時間{{ data.runtime }}分</p>
+						<p class="c-descHasPoster_desc_text">{{ data.overview }}</p>
+						<p class="c-descHasPoster_desc_date">公開日 {{ data.release_date }}</p>
+						<p class="c-descHasPoster_desc_runTime">上映時間 {{ data.runtime }}分</p>
 					</div>
 				</div>
 			</div>

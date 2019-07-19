@@ -13,3 +13,13 @@
         font-size: 40px;
     }
 }
+@include breakpoint(tb) {
+    .l-header{
+        &_inner{
+
+        }
+        &_title{
+            font-size: 26px;
+        }
+    }
+}

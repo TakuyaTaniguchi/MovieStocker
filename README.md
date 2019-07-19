@@ -1,5 +1,4 @@
 # In development
-鋭意製作中...
 
 <img src='./README/desc.png'>
 # MovieStocker
