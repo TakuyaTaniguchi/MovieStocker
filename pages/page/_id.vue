@@ -9,6 +9,8 @@
 					</div>
 					<div class="c-descHasPoster_desc">
 						<p>{{ data.overview }}</p>
+						<p>公開日{{ data.release_date }}</p>
+						<p>上映時間{{ data.runtime }}分</p>
 					</div>
 				</div>
 			</div>
