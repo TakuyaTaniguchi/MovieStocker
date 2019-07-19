@@ -14,7 +14,7 @@
                 <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
                 <div class="c-card_desc">
                     <div class="c-card_desc_inner">
-                      <h3>{{result.title}}</h3>
+                      <h3 class="c-card_desc_title">{{result.title}}</h3>
                       <p>{{ result.overview.slice(0,100)}}...</p>
                     </div>
                 </div>

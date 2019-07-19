@@ -1,11 +1,18 @@
 .c-descHasPoster{
     display: flex;
-    width: 1180px;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 1240px;
+    padding: 20px 40px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     &_poster{
-
+        max-width: 320px;
+        width: 100%;
     }
     &_desc{
         color: #5FCE98;
+        max-width: 450px;
+        width: 100%;
     }
 }
