@@ -9,29 +9,33 @@
         </form>
          <ul class="c-card">
           <li v-for="result in resultSearch" :key="result.id" class="c-card_item">
-            <div class="c-card_inner">
-              <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
-              <div class="c-card_desc">
-                  <div class="c-card_desc_inner">
-                    <h3>{{result.title}}</h3>
-                    <p>{{ result.overview.slice(0,100)}}...</p>
-                  </div>
+            <nuxt-link :to="`/page/${result.title}`">
+              <div class="c-card_inner">
+                <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
+                <div class="c-card_desc">
+                    <div class="c-card_desc_inner">
+                      <h3>{{result.title}}</h3>
+                      <p>{{ result.overview.slice(0,100)}}...</p>
+                    </div>
+                </div>
               </div>
-            </div>
+            </nuxt-link>
           </li>
         </ul>
         <h2 class="c-articleTitle">Most popular movies</h2>
         <ul class="c-card">
           <li v-for="result in results" :key="result.id" class="c-card_item">
-            <div class="c-card_inner">
-              <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
-              <div class="c-card_desc">
-                  <div class="c-card_desc_inner">
-                    <h3>{{result.title}}</h3>
-                    <p>{{ result.overview.slice(0,100)}}...</p>
-                  </div>
+            <nuxt-link :to="`/page/${result.title}`">
+              <div class="c-card_inner">
+                <img :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
+                <div class="c-card_desc">
+                    <div class="c-card_desc_inner">
+                      <h3>{{result.title}}</h3>
+                      <p>{{ result.overview.slice(0,100)}}...</p>
+                    </div>
+                </div>
               </div>
-            </div>
+            </nuxt-link>
           </li>
         </ul>
       </div>

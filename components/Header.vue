@@ -1,7 +1,9 @@
 <template>
     <section class="l-header">
     <div class="l-header_inner">
-      <h1 class="l-header_title">MovieStocker</h1>
+      <a href="/">
+       <h1 class="l-header_title">MovieStocker</h1>
+      </a>
     </div>
 </section>
 </template>

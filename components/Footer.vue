@@ -8,7 +8,7 @@
           </a>
         </li>
         <li class="c-listSns_item">
-          <a href="https://github.com/TakuyaTaniguchi" target="_blank">
+          <a href="https://github.com/TakuyaTaniguchi/MovieStocker" target="_blank">
            <img src="/icon-github.svg" alt="Github">
           </a>
         </li>
