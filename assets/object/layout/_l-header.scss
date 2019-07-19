@@ -10,7 +10,14 @@
         margin-right: auto;
     }
     &_title{
-        font-size: 40px;
+        font-size: 36px;
+        opacity: 1;
+        transition: opacity .4s;
+        display: block;
+        &:hover{
+            transition: opacity .4s;
+            opacity: 0.6;
+        }
     }
 }
 @include breakpoint(tb) {

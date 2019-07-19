@@ -1,0 +1,10 @@
+.c-genresList{
+    display: flex;
+    align-items: center;
+    &_item{
+        margin: 0 5px;
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+}

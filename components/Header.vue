@@ -1,8 +1,8 @@
 <template>
     <section class="l-header">
     <div class="l-header_inner">
-      <nuxt-link :to="`/`">
-       <h1 class="l-header_title">MovieStocker</h1>
+      <nuxt-link :to="`/`" class="l-header_title">
+       <h1 >MovieStocker</h1>
       </nuxt-link>
     </div>
 </section>

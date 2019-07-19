@@ -1,7 +1,7 @@
 <template>
 	 <section class="l-section -is-medium">
-		 <div class="container">
-			<h2 class="c-articleTitle">	{{data.title}}</h2>
+		 <div class="l-container">
+			<h2 class="c-articleTitle"> {{data.title}}</h2>
 			<div class="p-item">
 				<div class="c-descHasPoster">
 					<div class="c-descHasPoster_poster">
@@ -11,6 +11,9 @@
 						<p class="c-descHasPoster_desc_text">{{ data.overview }}</p>
 						<p class="c-descHasPoster_desc_date">公開日 {{ data.release_date }}</p>
 						<p class="c-descHasPoster_desc_runTime">上映時間 {{ data.runtime }}分</p>
+						<ul class="c-genresList">
+							<li v-for="genre in data.genres" :key="genre.id"  class="c-genresList_item">{{ genre.name }}</li>
+						</ul>
 					</div>
 				</div>
 			</div>

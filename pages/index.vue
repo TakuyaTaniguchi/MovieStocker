@@ -12,7 +12,7 @@
             <nuxt-link :to="`/page/${result.id}`">
                <div class="c-card_inner">
                 <img v-if="!result.backdrop_path" src="/dummy.jpg">
-                <img  v-else :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
+                <img v-else :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
                 <div class="c-card_desc">
                     <div class="c-card_desc_inner">
                       <h3 class="c-card_desc_title">{{result.title}}</h3>
@@ -50,11 +50,10 @@
 </template>
 
 <script>
-	export default {
+  export default {
     async asyncData({app}){
       const data = await app.$axios.$get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.TMDB_KEY}&language=ja-JA`);
       const results = data.results;
-       console.log(results);
 			return {
         results
 			}
