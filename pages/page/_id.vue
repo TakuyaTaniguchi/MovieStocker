@@ -1,7 +1,9 @@
 <template>
 	 <section class="l-section -is-medium">
 		 <div class="l-container">
-			<h2 class="c-articleTitle"> {{data.title}}</h2>
+			<h2 class="c-articleTitle" v-on:click="checkFavorite(`${data.id}`)" >
+				{{data.title}}
+			</h2>
 			<div class="p-item">
 				<div class="c-descHasPoster">
 					<div class="c-descHasPoster_poster">
@@ -22,12 +24,21 @@
 </template>
 
 <script>
+	const test = 'logogog';
 	export default {
 		async asyncData({ route,app }){
 			const id = route.params.id;
 			const data = await app.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`);
 			console.log(data);
 			return { data };
-		}
+		},
+		methods: {
+			checkFavorite(id) {
+				console.log(id,'引数');
+				localStorage.setItem('key', id);
+				const favoriteId = localStorage.getItem('key');
+				console.log(favoriteId,test)
+			}
+		},
 	}
 </script>
