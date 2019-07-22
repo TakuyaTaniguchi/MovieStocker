@@ -75,9 +75,9 @@
     async asyncData({app}){
       const data = await app.$axios.$get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.TMDB_KEY}&language=ja-JA`);
       const results = data.results;
-			return {
+      return {
         results
-			}
+      }
     },
     data(){
       return{
@@ -103,21 +103,11 @@
         const response = [];
         const list = this.$store.state.list;
         for(let i = 0; i < list.length; i++){
-              const id =list[i].id
-              response.push(await this.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`));
+          const id =list[i].id
+          response.push(await this.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`));
         }
         this.favorites  = response;
       },
-      // addTodo (e) {
-      //   this.$store.commit('add',e.target.value)
-      //   e.target.value = ''
-      // },
-      // ...mapMutations({
-      //   toggle: 'todos/toggle'
-      // }),
-      // removeTodo (todo){
-      //   this.$store.commit('remove',todo)
-      // }
   },
 	}
 </script>

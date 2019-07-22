@@ -40,11 +40,14 @@
 				checked : false,
 			}
 		},
+		mounted() {
+			this.hoge();
+		},
 		computed: {
 			checkAddFavorite(){
 				const list = this.$store.state.list;
 				for(let i = 0; i < list.length; i++){
-					console.log(list)
+					// console.log(list)
 				}
 				return this.checked;
 			},
@@ -53,7 +56,7 @@
 			addFavorite(e) {
 				const checked = e.target.checked;
 				const id = this.data.id;
-				console.log(this.$store.state.list);
+				// console.log(this.$store.state.list,'addFavorite');
 				if(checked){
 					this.$store.commit('add',{id,checked} )
 				}else{
@@ -61,8 +64,22 @@
 				}
 			},
 			hoge(){
-				console.log(this.$store.state.list);
+				const id = this.data.id;
+				const base_str = localStorage.getItem('vuex');
+				const regex = RegExp(`${id}*`);
+				const r = regex.test(base_str);
+				if(r){
+				// 部分一致のときの処理
+					console.log('登録済み')
+				}else{
+					console.log('登録していない');
+				}
 			}
 		},
 	}
 </script>
+
+
+<!--
+ローカルストレージの値をストアの初期値に設定すする。
+-->
