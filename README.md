@@ -1,8 +1,6 @@
-# In development
 
-<img src='./README/desc.png'>
 # MovieStocker
-
+<img src='./README/desc.png'>
 > Nuxt.js project
 
 ## Build Setup
