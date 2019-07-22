@@ -1,9 +1,10 @@
 <template>
 	 <section class="l-section -is-medium">
 		 <div class="l-container">
-			<h2 class="c-articleTitle" v-on:click="checkFavorite(`${data.id}`)" >
+			<h2 class="c-articleTitle">
 				{{data.title}}
 			</h2>
+				<button style="background-color:red" v-on:click="addFavorite(data.id)">お気に入りに追加</button>
 			<div class="p-item">
 				<div class="c-descHasPoster">
 					<div class="c-descHasPoster_poster">
@@ -24,21 +25,17 @@
 </template>
 
 <script>
-	const test = 'logogog';
 	export default {
 		async asyncData({ route,app }){
 			const id = route.params.id;
 			const data = await app.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`);
-			console.log(data);
+			// console.log(data);
 			return { data };
 		},
 		methods: {
-			checkFavorite(id) {
-				console.log(id,'引数');
-				localStorage.setItem('key', id);
-				const favoriteId = localStorage.getItem('key');
-				console.log(favoriteId,test)
-			}
+			addFavorite(id) {
+				this.$store.commit('add',id)
+			},
 		},
 	}
 </script>

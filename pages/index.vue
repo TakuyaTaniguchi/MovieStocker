@@ -3,22 +3,13 @@
     <section class="l-section -is-medium">
       <div class="l-container">
         <h2 class="c-articleTitle">Favorite</h2>
-         <!-- <ul class="c-card">
-          <li v-for="result in resultSearch" :key="result.id" class="c-card_item">
-            <nuxt-link :to="`/page/${result.id}`">
-               <div class="c-card_inner">
-                <img v-if="!result.backdrop_path" src="/dummy.jpg">
-                <img v-else :src="`https://image.tmdb.org/t/p/w780/${result.backdrop_path}`" >
-                <div class="c-card_desc">
-                    <div class="c-card_desc_inner">
-                      <h3 class="c-card_desc_title">{{result.title}}</h3>
-                      <p v-if="!result.overview" class="c-card_desc_text">Sorry No OverView</p>
-                      <p v-else class="c-card_desc_text">{{ result.overview.slice(0,100)}}...</p>
-                    </div>
-                </div>
-              </div>
-            </nuxt-link>
-          </li>
+        <!-- <ul>
+            <li v-for="todo in todos" :key="todo.id">
+              <input type="checkbox" :checked="todo.done" @change="toggle(todo)">
+              <span :class="{ done: todo.done }" style="color:red">{{ todo.text }}</span>
+              <button placeholder="Check item remove" v-on:click="removeTodo(1)" style="background-color: red;">クリアボタン</button>
+            </li>
+            <li><input placeholder="What needs to be done?" @keyup.enter="addTodo"></li>
         </ul> -->
       </div>
       <div class="l-container">
@@ -70,7 +61,7 @@
 </template>
 
 <script>
-  const ho = 'a';
+  import { mapMutations } from 'vuex';
   export default {
     async asyncData({app}){
       const data = await app.$axios.$get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.TMDB_KEY}&language=ja-JA`);
@@ -82,7 +73,13 @@
     data(){
       return{
         resultSearch: '',
-        text: ''
+        text: '',
+      }
+    },
+    computed: {
+      todos () {
+        console.log(this.$store.state.list,'store');
+        return this.$store.state.list
       }
     },
     methods: {
@@ -91,6 +88,16 @@
         const text = this.text;
         const response = await this.$axios.$get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_KEY}&query=${text}&language=ja-JA`);
         this.resultSearch = response.results;
+      },
+      addTodo (e) {
+        this.$store.commit('add',e.target.value)
+        e.target.value = ''
+      },
+      ...mapMutations({
+        toggle: 'todos/toggle'
+      }),
+      removeTodo (todo){
+        this.$store.commit('remove',todo)
       }
   },
 	}
