@@ -17,7 +17,8 @@
 							<li v-for="genre in data.genres" :key="genre.id"  class="c-genresList_item">{{ genre.name }}</li>
 						</ul>
 						<div class="c-favorite">
-							<button class="c-favorite_button" v-on:click="addFavorite(data.id)">お気に入りに追加</button>
+							<input type="checkbox" id="checkbox" v-model="checked" class="c-favorite_button" v-on:change="addFavorite">
+							<label for="checkbox">Favorite: {{checked ? "yes" : "no"}}</label>
 						</div>
 					</div>
 				</div>
@@ -34,16 +35,34 @@
 			// console.log(data);
 			return { data };
 		},
-		computed: {
-			listFavorites() {
-				return this.$store.state.list;
+		data(){
+			return{
+				checked : false,
 			}
 		},
-		methods: {
-			addFavorite(id) {
-				this.$store.commit('add',id)
-				alert('お気に入りに追加しました。')
+		computed: {
+			checkAddFavorite(){
+				const list = this.$store.state.list;
+				for(let i = 0; i < list.length; i++){
+					console.log(list)
+				}
+				return this.checked;
 			},
+		},
+		methods: {
+			addFavorite(e) {
+				const checked = e.target.checked;
+				const id = this.data.id;
+				console.log(this.$store.state.list);
+				if(checked){
+					this.$store.commit('add',{id,checked} )
+				}else{
+					this.$store.commit('remove',{id,checked} )
+				}
+			},
+			hoge(){
+				console.log(this.$store.state.list);
+			}
 		},
 	}
 </script>

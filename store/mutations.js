@@ -1,13 +1,14 @@
 export default {
-    add (state,id){
+    add (state,{id,checked}){
         state.list.push({
             id: id,
+            checked: checked
         })
     },
-    remove (state,{todo}){
-        state.list.splice(state.list.indexOf(todo),1)
-    },
-    toggle(state,todo){
-        todo.done = !todo.done
+    remove (state,{id,checked}){
+        state.list.splice(state.list.indexOf(id),1)
     }
+    // toggle(state,todo){
+    //     todo.done = !todo.done
+    // }
 }
