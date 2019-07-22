@@ -39,7 +39,8 @@ module.exports = {
 
 	},
 	plugins: [
-		'~/plugins/axios.js'
+    '~/plugins/axios.js',
+    '~/plugins/cookie-storage.js',
 	],
 	env: {
     TMDB_KEY
