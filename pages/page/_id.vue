@@ -4,10 +4,6 @@
 			<h2 class="c-articleTitle">
 				{{data.title}}
 			</h2>
-				<!-- <li v-for="listFavorite in listFavorites" :key="listFavorite.length">
-					<span style="color:red">{{ listFavorite.id }}</span>
-				</li>
-				<button style="background-color:red" v-on:click="addFavorite(data.id)">お気に入りに追加</button> -->
 			<div class="p-item">
 				<div class="c-descHasPoster">
 					<div class="c-descHasPoster_poster">
@@ -20,6 +16,9 @@
 						<ul class="c-genresList">
 							<li v-for="genre in data.genres" :key="genre.id"  class="c-genresList_item">{{ genre.name }}</li>
 						</ul>
+						<div class="c-favorite">
+							<button class="c-favorite_button" v-on:click="addFavorite(data.id)">お気に入りに追加</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -37,13 +36,13 @@
 		},
 		computed: {
 			listFavorites() {
-				console.log(this.$store.state.list)
 				return this.$store.state.list;
 			}
 		},
 		methods: {
 			addFavorite(id) {
 				this.$store.commit('add',id)
+				alert('お気に入りに追加しました。')
 			},
 		},
 	}

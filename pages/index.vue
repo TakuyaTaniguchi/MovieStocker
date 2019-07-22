@@ -3,14 +3,24 @@
     <section class="l-section -is-medium">
       <div class="l-container">
         <h2 class="c-articleTitle">Favorite</h2>
-        <!-- <ul>
-            <li v-for="todo in todos" :key="todo.id">
-              <input type="checkbox" :checked="todo.done" @change="toggle(todo)">
-              <span :class="{ done: todo.done }" style="color:red">{{ todo.text }}</span>
-              <button placeholder="Check item remove" v-on:click="removeTodo(1)" style="background-color: red;">クリアボタン</button>
-            </li>
-            <li><input placeholder="What needs to be done?" @keyup.enter="addTodo"></li>
-        </ul> -->
+        <button v-on:click="listFavorites()" style="color: red">データを取得</button>
+        <ul class="c-card">
+          <li v-for="favorit in favorites" :key="favorit.id" class="c-card_item">
+            <nuxt-link :to="`/page/${favorit.id}`">
+               <div class="c-card_inner">
+                <img v-if="!favorit.backdrop_path" src="/dummy.jpg">
+                <img v-else :src="`https://image.tmdb.org/t/p/w780/${favorit.backdrop_path}`" >
+                <div class="c-card_desc">
+                    <div class="c-card_desc_inner">
+                      <h3 class="c-card_desc_title">{{favorit.title}}</h3>
+                      <p v-if="!favorit.overview" class="c-card_desc_text">Sorry No OverView</p>
+                      <p v-else class="c-card_desc_text">{{ favorit.overview.slice(0,100)}}...</p>
+                    </div>
+                </div>
+              </div>
+            </nuxt-link>
+          </li>
+        </ul>
       </div>
       <div class="l-container">
         <h2 class="c-articleTitle">Search</h2>
@@ -74,12 +84,11 @@
       return{
         resultSearch: '',
         text: '',
+        favorites: ''
       }
     },
     computed: {
-      todos () {
-        return this.$store.state.list
-      }
+  
     },
     methods: {
       async checkForm(e) {
@@ -88,16 +97,25 @@
         const response = await this.$axios.$get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_KEY}&query=${text}&language=ja-JA`);
         this.resultSearch = response.results;
       },
-      addTodo (e) {
-        this.$store.commit('add',e.target.value)
-        e.target.value = ''
+      async listFavorites(e) {
+        const response = [];
+        const list = this.$store.state.list;
+        for(let i = 0; i < list.length; i++){
+              const id =list[i].id
+              response.push(await this.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`));
+        }
+        this.favorites  = response;
       },
-      ...mapMutations({
-        toggle: 'todos/toggle'
-      }),
-      removeTodo (todo){
-        this.$store.commit('remove',todo)
-      }
+      // addTodo (e) {
+      //   this.$store.commit('add',e.target.value)
+      //   e.target.value = ''
+      // },
+      // ...mapMutations({
+      //   toggle: 'todos/toggle'
+      // }),
+      // removeTodo (todo){
+      //   this.$store.commit('remove',todo)
+      // }
   },
 	}
 </script>
