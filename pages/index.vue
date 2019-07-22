@@ -3,7 +3,6 @@
     <section class="l-section -is-medium">
       <div class="l-container">
         <h2 class="c-articleTitle">Favorite</h2>
-        <button v-on:click="listFavorites()" style="color: red">データを取得</button>
         <ul class="c-card">
           <li v-for="favorit in favorites" :key="favorit.id" class="c-card_item">
             <nuxt-link :to="`/page/${favorit.id}`">
@@ -84,11 +83,14 @@
       return{
         resultSearch: '',
         text: '',
-        favorites: ''
+        favorites: '',
       }
     },
     computed: {
   
+    },
+    mounted () {
+      this.listFavorites();
     },
     methods: {
       async checkForm(e) {
