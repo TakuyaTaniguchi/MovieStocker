@@ -4,7 +4,10 @@
 			<h2 class="c-articleTitle">
 				{{data.title}}
 			</h2>
-				<button style="background-color:red" v-on:click="addFavorite(data.id)">お気に入りに追加</button>
+				<!-- <li v-for="listFavorite in listFavorites" :key="listFavorite.length">
+					<span style="color:red">{{ listFavorite.id }}</span>
+				</li>
+				<button style="background-color:red" v-on:click="addFavorite(data.id)">お気に入りに追加</button> -->
 			<div class="p-item">
 				<div class="c-descHasPoster">
 					<div class="c-descHasPoster_poster">
@@ -31,6 +34,12 @@
 			const data = await app.$axios.$get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_KEY}&language=ja-JA`);
 			// console.log(data);
 			return { data };
+		},
+		computed: {
+			listFavorites() {
+				console.log(this.$store.state.list)
+				return this.$store.state.list;
+			}
 		},
 		methods: {
 			addFavorite(id) {

@@ -78,7 +78,6 @@
     },
     computed: {
       todos () {
-        console.log(this.$store.state.list,'store');
         return this.$store.state.list
       }
     },
