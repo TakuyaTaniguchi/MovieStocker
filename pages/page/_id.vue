@@ -57,9 +57,11 @@
 				const checked = e.target.checked;
 				const id = this.data.id;
 				// console.log(this.$store.state.list,'addFavorite');
-				if(checked){
+				if(this.checked){
 					this.$store.commit('add',{id,checked} )
+					console.log('aa');
 				}else{
+					console.log('bb');
 					this.$store.commit('remove',{id,checked} )
 				}
 			},
@@ -68,11 +70,13 @@
 				const base_str = localStorage.getItem('vuex');
 				const regex = RegExp(`${id}*`);
 				const r = regex.test(base_str);
+
+
+				const checkBox = document.querySelector('.c-favorite_button');
 				if(r){
-				// 部分一致のときの処理
-					console.log('登録済み')
+					this.checked = true;
 				}else{
-					console.log('登録していない');
+					this.checked = false;
 				}
 			}
 		},

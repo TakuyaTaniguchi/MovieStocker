@@ -6,9 +6,12 @@ export default {
         })
     },
     remove (state,{id,checked}){
-        state.list.splice(state.list.indexOf(id),1)
+        let tagetId = 0;
+        state.list.find(function(element,index) {
+            if(element.id === id){
+                tagetId =  index;
+            };
+        });
+        state.list.splice(tagetId,1)
     }
-    // toggle(state,todo){
-    //     todo.done = !todo.done
-    // }
 }
