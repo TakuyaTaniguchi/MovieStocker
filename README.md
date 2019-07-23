@@ -1,7 +1,14 @@
 
 # MovieStocker
+映画をお気に入り登録するwebサイト  
+https://movie-stocker.netlify.com/  
+
 <img src='./README/desc.png'>
 > Nuxt.js project
+
+## Description
+
+
 
 ## Build Setup
 
