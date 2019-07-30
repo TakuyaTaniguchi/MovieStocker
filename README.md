@@ -4,12 +4,16 @@
 https://movie-stocker.netlify.com/  
 
 <img src='./README/desc.png'>
-> Nuxt.js project
 
 ## Description
 映画を検索し、お気に入りに追加することが可能です。  
-DBにはTMdbを使用しています。  
-データはローカルストレージに保存しています。  
+
+・APIはTMdbを使用しています。  
+・お気に入り登録機能はローカルストレージに値を保存する方法で実装しています。  
+
+## Development information
+VueとNuxt.jsを触ってみたいと思い作り始めました。  
+開発工数: 32h程度  
 
 
 ## Build Setup
